@@ -1,0 +1,212 @@
+#divWeatherMain{
+    grid-template-columns: 3;
+    display: block;
+    border-radius: 10px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    color: white;;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(8,7,42,1) 75%, rgb(8, 10, 63) 100%);
+
+}
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin: 10px 10px;
+    max-width: 500px;
+    padding: 20px 10px;
+    margin: auto;
+  }
+  
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  .form__field::placeholder {
+    color: transparent;
+  }
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+  
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+  }
+  
+  .form__label_right{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+  }
+  .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+  }
+  .form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight: 700;
+  }
+  
+  /* reset input */
+  .form__field:required, .form__field:invalid {
+    box-shadow: none;
+  }
+  
+  /* demo */
+  body {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    background-color: #222222;
+  }
+img.svg{
+    width: 100%;
+    max-width: 200px;
+}
+.grid-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: repeat(4,1fr);
+    
+    padding: 10px;
+  }
+  .aircolscont{
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+}
+ @media screen and (min-width:250px) and (max-width:481px) {
+    .grid-container {
+        display: block;
+        grid-template-columns: repeat(1,1fr);
+        width: 100%;
+      }
+      .aircolscont{
+        grid-template-columns: repeat(1,1fr);
+        width: 100%;
+    }
+  }
+  @media screen and (min-width:481px) and (max-width:900px) {
+    .grid-container {
+        
+        grid-template-columns: repeat(2,1fr);
+        width: 100%;
+      }
+      .aircolscont{
+        grid-template-columns: repeat(1,1fr);
+        width: 100%;
+    }
+  }
+  @media screen and (min-width:900px) and (max-width:1024px) {
+    .grid-container {
+        
+        grid-template-columns: repeat(4,1fr);
+        width: 100%;
+      }
+      .aircolscont{
+        grid-template-columns: repeat(2,1fr);
+        width: 100%;
+    }
+  }
+
+.grid-item {
+    color: #7bff00;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+svg:hover{
+    fill:aqua;
+}
+.weatherWidgetRow{
+    color:#ffffff;
+    display:block;
+    
+
+    
+}
+
+.aircols{
+    display: grid ;
+    width: 35%;
+    margin: 4%;
+    height: fit-content;
+    padding: 3%;
+    font-size: 35px;
+    text-align: center;
+    color:#ffffff;
+    display: inline-block;
+}
+.components{
+    font-size: 16px;
+}
+
+
+.weatherWidgetIcon{
+    overflow-x: hidden;
+    display:inline-block;
+   
+
+    width: fit-content;
+}
+
+.weatherWidgetTemp{
+    overflow-x: hidden;
+    height: 100%;
+    display: inline-block;
+   
+}
+
+.moon{
+    margin-top: 10px;
+    color: rgb(238, 255, 0);
+    filter: drop-shadow( 1px 1px 10px white);
+}
+
+.cloudDiv{
+    margin-top: -40px;
+}
+
+.cloud{
+    color: rgb(104, 175, 197);
+    filter: drop-shadow( 1px 1px 5px rgb(104, 175, 197));
+    animation-name: cloudMovement;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+@keyframes cloudMovement{
+    from{margin-left: -55px;}
+    to{margin-left: 65px;}
+}

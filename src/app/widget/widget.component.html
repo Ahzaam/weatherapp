@@ -1,0 +1,99 @@
+<div id="divWeatherMain"> 
+    <div class="form__group field">
+        <input type="text" name="city" (change)="inputCity($event)" class="form__field" placeholder="Name" id='city' required />
+        <label for="name" class="form__label">Enter City Name</label>
+        <label for="name" class="form__label_right">Search</label>
+      </div>
+
+
+<div class="grid-container">
+    <div class="grid-item " [ngClass]="{'moon': !WeatherData.isDay} ">
+        <!-- <img src="http://openweathermap.org/img/wn/{{ WeatherData.icon }}@4x.png" alt=""> -->
+        <img class="svg cloud" src="assets/svg/{{ icon }}.svg" alt="">
+        <div class="weatherWidgetRow" style="font-size: 20px;">{{WeatherData.description}}</div>
+
+        <p >{{ WeatherData.message}}</p>
+    </div>
+    <div class="grid-item">
+        <div class="weatherWidgetRow ">
+            <div  style="font-size: 100px;margin-top: 5px;z-index: 1000; width:40%;overflow-x: hidden;display:inline-block">{{WeatherData.temp_c}}</div>
+            <!--°  -->
+            <img class="" style="width: 130px;background-color: transparent;z-index: -1000;" class="svg" src="assets\svg\htemp.svg" alt="">
+            
+        </div>
+        
+        
+        <div class="weatherWidgetRow" style="font-size: 30px;">{{WeatherData.temp_min}}° / {{WeatherData.temp_max}}</div>
+        <div class="weatherWidgetRow" style="font-size: 20px;">Feels Like: {{WeatherData.feels_like}}°</div>
+    
+    </div>
+    <div class="grid-item">
+        <div class="weatherWidgetRow" style="font-size: 50px;margin-top: 10px;">{{WeatherData.name}}</div>
+        <div class="weatherWidgetRow" style="font-size: 30px;">{{WeatherData.current_time}}</div>
+        <div class="weatherWidgetRow" style="font-size: 30px;">Humidity: {{WeatherData.main.humidity}}%</div>
+        
+        <div class="weatherWidgetRow aircols" style="font-size: 20px;">AQI    <span style="color:{{aqilevels[WeatherData.Air.list[0].main.aqi].color  }}">{{ aqilevels[WeatherData.Air.list[0].main.aqi].status }}</span></div>
+        
+    </div>  
+    <div class="grid-item">
+        <div class="weatherWidgetRow" style="font-size: 20px;">{{WeatherData.wind.deg   }}° <img style="width:25px;transform: rotate({{ WeatherData.wind.deg-60 }}deg);" src="assets\svg\angle.svg" alt="hello"></div>
+        <img class="svg" style="width: 30%;" src="assets\svg\vwindy.svg" alt="hello">
+        <div class="weatherWidgetRow" style="font-size: 20px;"> Speed {{WeatherData.wind.speed   }} kmh<sup>-1</sup></div>
+        <div class="weatherWidgetRow" style="font-size: 20px;"> Gust {{WeatherData.wind.gust   }} kmh<sup>-1</sup></div>
+        
+        <!--   -->
+    </div> 
+    <div class="grid-item">
+        
+        
+        <embed src="assets\svg\f_1_sunrise.svg" alt="hello">
+            <div class="weatherWidgetRow" style="font-size: 20px;">{{ WeatherData.sunrise_time   }}</div>
+            <div class="weatherWidgetRow" style="font-size: 20px;">{{ WeatherData.remaining   }} Hours Remaining </div>
+        <!--   -->
+    </div>
+    
+     
+    
+      <div class="grid-item">
+        
+        <embed  class="svg" src="assets\svg\f_2_sunset.svg" >
+        <div class="weatherWidgetRow" style="font-size: 20px;">{{ WeatherData.sunset_time   }}</div>
+        
+        <!--   -->
+    </div> 
+
+
+    <div class="aircolscont">
+        <div class=" aircols" style="border: 1px solid {{aqilevels[WeatherData.Air.list[0].main.aqi].color  }}" >CO   <div  class="components">{{  WeatherData.Air.list[0].components.co    }} mg/m <sup>3</sup></div></div>
+        <div class=" aircols" style="border: 1px solid {{aqilevels[WeatherData.Air.list[0].main.aqi].color  }}" >NO   <div  class="components">{{  WeatherData.Air.list[0].components.no    }} mg/m <sup>3</sup></div></div>
+        <div class=" aircols" style="border: 1px solid {{aqilevels[WeatherData.Air.list[0].main.aqi].color  }}" >NO2  <div  class="components">{{  WeatherData.Air.list[0].components.no2   }} mg/m <sup>3</sup></div></div>
+        <div class=" aircols" style="border: 1px solid {{aqilevels[WeatherData.Air.list[0].main.aqi].color  }}" >O3   <div  class="components">{{  WeatherData.Air.list[0].components.o3    }} mg/m <sup>3</sup></div></div>
+
+        
+       
+      </div>
+
+      <div class="aircolscont">
+        
+        <div class=" aircols" style="border: 1px solid {{aqilevels[WeatherData.Air.list[0].main.aqi].color  }}" >SO2   <div  class="components">{{  WeatherData.Air.list[0].components.so2   }} mg/m <sup>3</sup></div></div>
+        <div class=" aircols" style="border: 1px solid {{aqilevels[WeatherData.Air.list[0].main.aqi].color  }}" >PM2.5 <div  class="components">{{  WeatherData.Air.list[0].components.pm2_5 }} mg/m <sup>3</sup></div></div>
+        <div class=" aircols" style="border: 1px solid {{aqilevels[WeatherData.Air.list[0].main.aqi].color  }}" >PM10  <div  class="components">{{  WeatherData.Air.list[0].components.pm10  }} mg/m <sup>3</sup></div></div>
+        <div class=" aircols" style="border: 1px solid {{aqilevels[WeatherData.Air.list[0].main.aqi].color  }}" >NH3   <div  class="components">{{  WeatherData.Air.list[0].components.nh3   }} mg/m <sup>3</sup></div></div>
+
+       
+      </div>
+      
+  </div>
+ 
+
+
+    
+    <div class="aircolscont" style="color:brown;">
+        
+    <div class=" "  >  <div  class="components">{{ ipdata.org    }} </div></div>
+    <div class=" " style="" >  <div  class="components">{{ ipdata.country_name    }} </div></div>
+    <div class=" " style="" >  <div  class="components">{{ ipdata.ip    }} </div></div>
+    <div class=" " style="" >  <div  class="components">{{ ipdata.postal    }} </div></div>
+  </div>
+</div>
+

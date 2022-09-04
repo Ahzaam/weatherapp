@@ -7,11 +7,11 @@ app.use(express.static(distDir));
 
 
 app.get('/api',(req, res) => {
-    res.status(200).json({"status": 200, "message" : distDir, "Stuck" : true})
+    res.status(200).json({"status": 200, "message" : 'distDir', "Stuck" : true})
 })
 
 app.get('/api/hello',(req, res) => {
-    res.status(200).send(distDir)
+    res.status(200).send('distDir')
 } )
 
 

@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 
-var distDir ="./dist/weatherapp";
+var distDir = __dirname + "/dist/weatherapp";
 app.use(express.static(distDir));
 
 
@@ -11,7 +11,7 @@ app.get('/api',(req, res) => {
 })
 
 app.get('/api/hello',(req, res) => {
-    res.status(200).send('I love JavaScript')
+    res.status(200).send(distDir)
 } )
 
 

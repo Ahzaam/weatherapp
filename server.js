@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 
-var distDir = __dirname + "/dist/weatherapp";
+var distDir ="./dist/weatherapp";
 app.use(express.static(distDir));
 
 
